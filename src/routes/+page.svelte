@@ -538,7 +538,7 @@
                 <img
                         src="/logo-hljk.png"
                         alt="Logo HLJK"
-                        class="mx-auto h-14"
+                        class="mx-auto h-24"
                 />
             </div>
         </footer>
