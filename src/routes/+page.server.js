@@ -51,7 +51,8 @@ export const actions = {
                 console.log('Shranili individualno:', record);
             } catch (err) {
                 console.error('Napaka PB (individualna):', err);
-                return fail(500, { error: 'Ni uspelo shraniti (individualna) v PB.' });
+                const sporocilo = err?.response?.data ? JSON.stringify(err.response.data) : String(err);
+                return fail(500, { error: `Napaka PB (individualna): ${sporocilo}` });
             }
 
             return {
@@ -97,7 +98,8 @@ export const actions = {
                 }
             } catch (err) {
                 console.error('Napaka PB (skupinska):', err);
-                return fail(500, { error: 'Ni uspelo shraniti (skupinska) v PB.' });
+                const sporocilo = err?.response?.data ? JSON.stringify(err.response.data) : String(err);
+                return fail(500, { error: `Napaka PB (skupinska): ${sporocilo}` });
             }
 
             return {
