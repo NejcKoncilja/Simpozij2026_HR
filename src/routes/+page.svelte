@@ -328,7 +328,8 @@
                                 {/each}
                                 <div class="price-section">
                                     {#if jeAkcijskaCena}
-                                        <p class="price-text">Kotizacija: 150 € + PDV po osobi</p>
+                                        <p class="price-text"><span class="line-through text-gray-500">Kotizacija: 170 € + PDV po osobi</span></p>
+                                        <p class="price-text font-semibold">Kotizacija: 150 € + PDV po osobi</p>
                                     {:else}
                                         <p class="price-text">Kotizacija: 170 € + PDV po osobi</p>
                                     {/if}
@@ -417,7 +418,8 @@
                                     <div class="text-right">
                                         <p class="text-sm text-gray-600">U slučaju četiri ili više sudionika iz iste tvrtke, odobravamo 5 % popusta na sve prijave.</p>
                                         {#if jeAkcijskaCena}
-                                            <p class="price-text mt-1">Kotizacija: 142,5 € + PDV po osobi</p>
+                                            <p class="price-text mt-1"><span class="line-through text-gray-500">Kotizacija: 161,5 € + PDV po osobi</span></p>
+                                            <p class="price-text mt-1 font-semibold">Kotizacija: 142,5 € + PDV po osobi</p>
                                         {:else}
                                             <p class="price-text mt-1">Kotizacija: 161,5 € + PDV po osobi</p>
                                         {/if}
