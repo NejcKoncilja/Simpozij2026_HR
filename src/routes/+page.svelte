@@ -10,6 +10,8 @@
         sfd: boolean;
     }
 
+    export let data: { jeAkcijskaCena: boolean };
+
     let activeTab: 'prijava' | 'program' = 'prijava';
     let prijavaVrsta: '' | 'individualna' | 'skupinska' = '';
 
@@ -19,9 +21,7 @@
         davcna: ''
     };
 
-    const datumKrajAkcije = new Date('2026-04-22');
-    const danes = new Date();
-    let jeAkcijskaCena = danes < datumKrajAkcije;
+    const jeAkcijskaCena = data.jeAkcijskaCena;
 
     function ustvariUdelezenec(): Udelezenec {
         return { ime: '', email: '', telefon: '', sfd: false };
@@ -240,11 +240,11 @@
                             <h2 class="card-title text-[#0F786B]">Kotizacija</h2>
                             <div class="space-y-2 text-gray-800 text-base">
                                 {#if jeAkcijskaCena}
-                                    <p><span class="line-through text-gray-400">Individualna prijava: 170 € + PDV po osobi</span></p>
-                                    <p><span class="line-through text-gray-400">Grupna prijava: 161,5 € + PDV po osobi</span></p>
-                                    <p class="font-semibold mt-3">Akcijska cijena za rane prijave</p>
-                                    <p>Individualna prijava: 150 € + PDV po osobi</p>
-                                    <p>Grupna prijava: 142,5 € + PDV po osobi</p>
+                                    <p><span class="line-through text-gray-500">Individualna prijava: 170 € + PDV po osobi</span></p>
+                                    <p><span class="line-through text-gray-500">Grupna prijava: 161,5 € + PDV po osobi</span></p>
+                                    <p class="font-semibold text-[#0F786B] mt-3">Akcijska cijena za rane prijave:</p>
+                                    <p class="font-semibold">Individualna prijava: 150 € + PDV po osobi</p>
+                                    <p class="font-semibold">Grupna prijava: 142,5 € + PDV po osobi</p>
                                     <p class="text-sm text-gray-500 mt-1">* Vrijedi do 21. 4. 2026</p>
                                 {:else}
                                     <p>Individualna prijava: 170 € + PDV po osobi</p>

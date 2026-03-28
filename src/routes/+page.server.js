@@ -3,6 +3,13 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('https://rest-grown.pockethost.io');
 
+export function load() {
+    const datumKrajAkcije = new Date('2026-04-22');
+    const danes = new Date();
+    const jeAkcijskaCena = danes < datumKrajAkcije;
+    return { jeAkcijskaCena };
+}
+
 export const actions = {
     default: async ({ request }) => {
         const formData = await request.formData();
