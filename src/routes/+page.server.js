@@ -39,7 +39,7 @@ export const actions = {
             }
 
             try {
-                const record = await pb.collection('GMP_Individualna').create({
+                const record = await pb.collection('HR_individualna').create({
                     Podjetje: podjetjeNaziv,
                     Naslov_sedeza_podjetja: podjetjeNaslov,
                     Davcna_stevilka: podjetjeDavcna,
@@ -84,7 +84,7 @@ export const actions = {
 
             try {
                 for (const ud of seznam) {
-                    const zapis = await pb.collection('GMP_Skupinska').create({
+                    const zapis = await pb.collection('HR_skupinska').create({
                         Podjetje: podjetjeNaziv,
                         Naslov_sedeza_podjetja: podjetjeNaslov,
                         Davcna_stevilka: podjetjeDavcna,
