@@ -8,7 +8,6 @@
         email: string;
         telefon: string;
         sfd: boolean;
-        prevoz: boolean;
     }
 
     let activeTab: 'prijava' | 'program' = 'prijava';
@@ -20,8 +19,12 @@
         davcna: ''
     };
 
+    const datumKrajAkcije = new Date('2026-04-22');
+    const danes = new Date();
+    let jeAkcijskaCena = danes < datumKrajAkcije;
+
     function ustvariUdelezenec(): Udelezenec {
-        return { ime: '', email: '', telefon: '', sfd: false, prevoz: false };
+        return { ime: '', email: '', telefon: '', sfd: false };
     }
 
     let udelezenci: Udelezenec[] = [];
@@ -131,22 +134,22 @@
     <div class="flex-grow">
         <section class="max-w-6xl mx-auto mb-8 text-center">
             <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F786B] mb-2">
-                PRIJAVA ZA GMP SIMPOZIJ 2025
+                PRIJAVA ZA GMP SIMPOZIJ 2026
             </h1>
-            <p class="text-xl text-gray-600 font-medium">ANNEX 1 - CCS Latest updates & workshop</p>
+            <p class="text-xl text-gray-600 font-medium">Workshops and practical cases</p>
             <div class="mt-3 text-lg text-gray-500 space-y-1 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
                 <span class="inline-flex items-center gap-1.5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days">
                         <path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="M8 14h.01" /><path d="M12 14h.01" /><path d="M16 14h.01" /><path d="M8 18h.01" /><path d="M12 18h.01" /><path d="M16 18h.01" />
                     </svg>
-                    Utorak, 10. lipnja 2025
+                    Utorak, 9. lipnja 2026
                 </span>
                 <span class="hidden md:inline">|</span>
                 <span class="inline-flex items-center gap-1.5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
                         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
                     </svg>
-                    Terme Olimia, Hotel Sotelia, Zdraviliška cesta 24, 3254 Podčetrtek
+                    Terme Tuhelj, Tuheljske Toplice, Hrvatska
                 </span>
             </div>
         </section>
@@ -236,8 +239,17 @@
                         <section class="card">
                             <h2 class="card-title text-[#0F786B]">Kotizacija</h2>
                             <div class="space-y-2 text-gray-800 text-base">
-                                <p>Individualna prijava: 160 € + PDV po osobi</p>
-                                <p>Grupna prijava : 152 € + PDV po osobi</p>
+                                {#if jeAkcijskaCena}
+                                    <p><span class="line-through text-gray-400">Individualna prijava: 170 € + PDV po osobi</span></p>
+                                    <p><span class="line-through text-gray-400">Grupna prijava: 161,5 € + PDV po osobi</span></p>
+                                    <p class="font-semibold mt-3">Akcijska cijena za rane prijave</p>
+                                    <p>Individualna prijava: 150 € + PDV po osobi</p>
+                                    <p>Grupna prijava: 142,5 € + PDV po osobi</p>
+                                    <p class="text-sm text-gray-500 mt-1">* Vrijedi do 21. 4. 2026</p>
+                                {:else}
+                                    <p>Individualna prijava: 170 € + PDV po osobi</p>
+                                    <p>Grupna prijava: 161,5 € + PDV po osobi</p>
+                                {/if}
                             </div>
                         </section>
 
@@ -303,16 +315,6 @@
                                         <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-4">
                                             <label class="checkbox-label">
                                                 <input
-                                                        id="ud{idx}_prevoz"
-                                                        name="udelezenec{idx}_prevoz"
-                                                        type="checkbox"
-                                                        bind:checked={ud.prevoz}
-                                                        class="checkbox"
-                                                />
-                                                Želim prijevoz iz Zagreba
-                                            </label>
-                                            <label class="checkbox-label">
-                                                <input
                                                         id="ud{idx}_sfd"
                                                         name="udelezenec{idx}_sfd"
                                                         type="checkbox"
@@ -325,7 +327,11 @@
                                     </div>
                                 {/each}
                                 <div class="price-section">
-                                    <p class="price-text">Kotizacija: 160 € + PDV po osobi</p>
+                                    {#if jeAkcijskaCena}
+                                        <p class="price-text">Kotizacija: 150 € + PDV po osobi</p>
+                                    {:else}
+                                        <p class="price-text">Kotizacija: 170 € + PDV po osobi</p>
+                                    {/if}
                                 </div>
                             </section>
                         {:else if prijavaVrsta === 'skupinska'}
@@ -376,16 +382,6 @@
                                             <div class="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-800">
                                                 <label class="checkbox-label">
                                                     <input
-                                                            id="ud{idx}_prevoz"
-                                                            name="udelezenec{idx}_prevoz"
-                                                            type="checkbox"
-                                                            bind:checked={ud.prevoz}
-                                                            class="checkbox"
-                                                    />
-                                                    Želim prijevoz iz Zagreba
-                                                </label>
-                                                <label class="checkbox-label">
-                                                    <input
                                                             id="ud{idx}_sfd"
                                                             name="udelezenec{idx}_sfd"
                                                             type="checkbox"
@@ -420,7 +416,11 @@
                                     </button>
                                     <div class="text-right">
                                         <p class="text-sm text-gray-600">U slučaju četiri ili više sudionika iz iste tvrtke, odobravamo 5 % popusta na sve prijave.</p>
-                                        <p class="price-text mt-1">Kotizacija: 152 € + PDV po osobi</p>
+                                        {#if jeAkcijskaCena}
+                                            <p class="price-text mt-1">Kotizacija: 142,5 € + PDV po osobi</p>
+                                        {:else}
+                                            <p class="price-text mt-1">Kotizacija: 161,5 € + PDV po osobi</p>
+                                        {/if}
                                     </div>
                                 </div>
                             </section>
@@ -531,6 +531,13 @@
                     <a href="mailto:cleanroom@sanol-h.com" class="link">cleanroom@sanol-h.com</a> |
                     <a href="tel:+385995050265" class="link">+385 (0)99 5050 265</a>
                 </p>
+            </div>
+            <div>
+                <img
+                        src="/logo-hljk.png"
+                        alt="Logo HLJK"
+                        class="mx-auto h-14"
+                />
             </div>
         </footer>
     </div>

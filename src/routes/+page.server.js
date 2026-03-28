@@ -23,7 +23,6 @@ export const actions = {
             const ime = formData.get('udelezenec0_ime') || '';
             const email = formData.get('udelezenec0_email') || '';
             const telefon = formData.get('udelezenec0_telefon') || '';
-            const prevoz = formData.get('udelezenec0_prevoz') ? true : false;
             const sfd = formData.get('udelezenec0_sfd') ? true : false;
 
             if (!ime || !email || !telefon) {
@@ -40,7 +39,6 @@ export const actions = {
                     Ime_in_priimek: ime,
                     Elektronski_naslov: email,
                     Telefonska_stevilka: telefon,
-                    Prevoz: prevoz,
                     SFD: sfd
                 });
                 console.log('Shranili individualno:', record);
@@ -65,10 +63,9 @@ export const actions = {
                 }
                 const email = formData.get(`udelezenec${i}_email`) || '';
                 const telefon = formData.get(`udelezenec${i}_telefon`) || '';
-                const prevoz = formData.get(`udelezenec${i}_prevoz`) ? true : false;
                 const sfd = formData.get(`udelezenec${i}_sfd`) ? true : false;
 
-                seznam.push({ ime, email, telefon, prevoz, sfd });
+                seznam.push({ ime, email, telefon, sfd });
                 i++;
             }
 
@@ -87,7 +84,6 @@ export const actions = {
                         Ime_in_priimek: ud.ime,
                         Elektronski_naslov: ud.email,
                         Telefonska_stevilka: ud.telefon,
-                        Prevoz: ud.prevoz,
                         SFD: ud.sfd
                     });
                     console.log('Shranjeno (skupinska):', zapis);
