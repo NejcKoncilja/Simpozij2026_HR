@@ -69,7 +69,7 @@ export const actions = {
                 if (!ime) {
                     break;
                 }
-                const email = formData.get(`udelezenec${i}_email`) || '';
+                const email = (formData.get(`udelezenec${i}_email`) || '').trim();
                 const telefon = formData.get(`udelezenec${i}_telefon`) || '';
                 const sfd = formData.get(`udelezenec${i}_sfd`) ? true : false;
 
