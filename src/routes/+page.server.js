@@ -83,6 +83,20 @@ export const actions = {
                 });
             }
 
+            for (const [index, ud] of seznam.entries()) {
+                if (!ud.ime || !ud.email || !ud.telefon) {
+                    return fail(400, {
+                        error: `Sudionik #${index + 1}: nedostaju ime, email ili telefon.`
+                    });
+                }
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(ud.email)) {
+                    return fail(400, {
+                        error: `Sudionik #${index + 1}: nevažeći email "${ud.email}".`
+                    });
+                }
+            }
+
             try {
                 for (const ud of seznam) {
                     const zapis = await pb.collection('HR_skupinska').create({
