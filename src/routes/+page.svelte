@@ -130,7 +130,7 @@
     }
 </script>
 
-<div id="gmpForm" class="min-h-screen w-full bg-gray-50 px-4 py-8 sm:px-6 md:px-8 lg:px-10 font-sans flex flex-col">
+<div id="gmpForm" class="min-h-screen w-full bg-gray-50 border-t-4 border-[#0F786B] px-4 py-8 sm:px-6 md:px-8 lg:px-10 font-sans flex flex-col">
     <div class="flex-grow">
         <section class="max-w-6xl mx-auto mb-8 text-center">
             <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F786B] mb-2">
@@ -640,25 +640,25 @@
 
 <style>
     .input {
-        @apply block w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm outline-none focus:ring-2 focus:ring-[#7AB2AC] focus:border-[#0F786B] transition duration-150 ease-in-out;
+        @apply block w-full border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 placeholder-gray-400 bg-white shadow-sm outline-none focus:ring-2 focus:ring-[#7AB2AC] focus:border-[#0F786B] transition duration-150 ease-in-out;
     }
     .checkbox {
         @apply h-5 w-5 accent-[#0F786B] border-gray-300 rounded focus:ring-2 focus:ring-offset-1 focus:ring-[#7AB2AC] cursor-pointer align-middle;
     }
     .label {
-        @apply block text-sm font-medium text-gray-700 mb-1;
+        @apply block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5;
     }
     .checkbox-label {
         @apply inline-flex items-center gap-2 cursor-pointer;
     }
     .card {
-        @apply bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-200;
+        @apply bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100;
     }
     .card-title {
-        @apply font-serif text-xl md:text-2xl font-semibold text-gray-800 mb-6 border-b pb-3;
+        @apply font-serif text-xl md:text-2xl font-semibold text-gray-800 mb-6 border-b border-gray-100 pb-3;
     }
     .participant-box {
-        @apply border border-gray-200 rounded-md p-5 relative bg-gray-50/50 shadow-sm;
+        @apply border border-gray-200 rounded-xl p-5 relative bg-white shadow-sm;
     }
     .price-section {
         @apply mt-6 pt-6 border-t border-gray-200;
@@ -667,28 +667,28 @@
         @apply font-semibold text-lg text-[#0F786B];
     }
     .remove-button {
-        @apply ml-auto mt-2 sm:mt-0 px-3 py-1.5 border border-red-500 rounded-md text-sm text-red-500 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 transition-colors duration-200;
+        @apply ml-auto mt-2 sm:mt-0 px-3 py-1.5 border border-red-400 rounded-lg text-sm text-red-500 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 transition-colors duration-200;
     }
     .add-button {
-        @apply w-full sm:w-auto bg-blue-600 text-white px-5 py-2.5 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200;
+        @apply w-full sm:w-auto bg-[#0F786B] text-white px-5 py-2.5 rounded-lg shadow-sm hover:bg-[#0c5f56] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7AB2AC] transition-all duration-200;
     }
     .pre-submit-note {
-        @apply max-w-6xl mx-auto mt-10 text-center p-5 bg-teal-50 border border-teal-200 rounded-lg;
+        @apply max-w-6xl mx-auto mt-10 text-center p-5 bg-[#0F786B]/5 border border-[#0F786B]/20 rounded-xl;
     }
     .submit-button {
-        @apply px-10 py-3.5 rounded-lg shadow-lg transition-all duration-200 text-lg font-bold uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+        @apply px-10 py-3.5 rounded-xl shadow-lg transition-all duration-200 text-lg font-bold uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
     }
     .submit-button.primary {
         @apply bg-[#0F786B] text-white hover:bg-[#0c5f56] hover:shadow-xl focus:ring-[#7AB2AC];
     }
     .footer {
-        @apply max-w-6xl mx-auto text-center pt-8 border-t border-gray-300;
+        @apply max-w-6xl mx-auto text-center pt-8 border-t border-gray-200;
     }
     .contact-box {
-        @apply inline-block border-2 border-[#0F786B] px-8 py-5 mb-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200;
+        @apply inline-block border-2 border-[#0F786B] px-8 py-5 mb-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200;
     }
     .link {
-        @apply text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200;
+        @apply text-[#0F786B] hover:text-[#0c5f56] hover:underline transition-colors duration-200;
     }
     .tab-button {
         @apply px-6 py-3 font-semibold text-lg transition-colors duration-200 ease-in-out border-b-2;
@@ -697,13 +697,13 @@
         @apply border-[#0F786B] text-[#0F786B];
     }
     .tab-button:not(.active) {
-        @apply border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-400;
+        @apply border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-300;
     }
     .modal-overlay {
         @apply fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4;
     }
     .modal-content {
-        @apply bg-white w-full max-w-2xl mx-auto p-7 rounded-lg shadow-xl text-left transform transition-all scale-100 opacity-100;
+        @apply bg-white w-full max-w-2xl mx-auto p-7 rounded-2xl shadow-xl text-left transform transition-all scale-100 opacity-100;
     }
     .modal-title {
         @apply text-xl font-semibold text-gray-800 mb-4;
@@ -712,16 +712,16 @@
         @apply text-sm text-gray-600 leading-relaxed max-h-60 overflow-y-auto pr-2 space-y-3;
     }
     .modal-actions {
-        @apply mt-8 flex gap-4 justify-end border-t pt-5;
+        @apply mt-8 flex gap-4 justify-end border-t border-gray-100 pt-5;
     }
     .button {
-        @apply px-5 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed;
+        @apply px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed;
     }
     .button.primary {
         @apply bg-[#0F786B] text-white hover:bg-[#0c5f56] focus:ring-[#7AB2AC];
     }
     .button.secondary {
-        @apply bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-400;
+        @apply bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-400;
     }
     .prose p {
         @apply mb-4;
