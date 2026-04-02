@@ -238,17 +238,27 @@
 
                         <section class="card">
                             <h2 class="card-title text-[#0F786B]">Kotizacija</h2>
-                            <div class="space-y-2 text-gray-800 text-base">
+                            <div class="space-y-4 text-gray-800 text-base">
+                                <div>
+                                    <p class="font-semibold uppercase text-xs tracking-wider text-gray-500 mb-1">Individualna prijava</p>
+                                    {#if jeAkcijskaCena}
+                                        <p><span class="line-through text-gray-400">170 € + PDV po osobi</span></p>
+                                        <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: 150 € + PDV po osobi</p>
+                                    {:else}
+                                        <p>170 € + PDV po osobi</p>
+                                    {/if}
+                                </div>
+                                <div>
+                                    <p class="font-semibold uppercase text-xs tracking-wider text-gray-500 mb-1">Grupna prijava</p>
+                                    {#if jeAkcijskaCena}
+                                        <p><span class="line-through text-gray-400">161,5 € + PDV po osobi</span></p>
+                                        <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: 142,5 € + PDV po osobi</p>
+                                    {:else}
+                                        <p>161,5 € + PDV po osobi</p>
+                                    {/if}
+                                </div>
                                 {#if jeAkcijskaCena}
-                                    <p><span class="line-through text-gray-500">Individualna prijava: 170 € + PDV po osobi</span></p>
-                                    <p><span class="line-through text-gray-500">Grupna prijava: 161,5 € + PDV po osobi</span></p>
-                                    <p class="font-semibold text-[#0F786B] mt-3">Akcijska cijena za rane prijave:</p>
-                                    <p class="font-semibold">Individualna prijava: 150 € + PDV po osobi</p>
-                                    <p class="font-semibold">Grupna prijava: 142,5 € + PDV po osobi</p>
-                                    <p class="text-sm text-gray-500 mt-1">* Vrijedi do 21. 4. 2026</p>
-                                {:else}
-                                    <p>Individualna prijava: 170 € + PDV po osobi</p>
-                                    <p>Grupna prijava: 161,5 € + PDV po osobi</p>
+                                    <p class="text-sm text-gray-500">* Vrijedi do 21. 4. 2026</p>
                                 {/if}
                             </div>
                         </section>
@@ -416,7 +426,6 @@
                                         Dodaj sudionika
                                     </button>
                                     <div class="text-right">
-                                        <p class="text-sm text-gray-600">U slučaju četiri ili više sudionika iz iste tvrtke, odobravamo 5 % popusta na sve prijave.</p>
                                         {#if jeAkcijskaCena}
                                             <p class="price-text mt-1"><span class="line-through text-gray-500">Kotizacija: 161,5 € + PDV po osobi</span></p>
                                             <p class="price-text mt-1 font-semibold">Kotizacija: 142,5 € + PDV po osobi</p>
@@ -431,7 +440,7 @@
                         {#if prijavaVrsta}
                             <div class="pre-submit-note">
                                 <p class="font-semibold text-lg md:text-xl text-[#0F786B]">
-                                    Nakon zaprimanja Vaše prijave, potvrdu i predračun za uplatu kotizacije ćemo Vam poslati na Vašu e-mail adresu.
+                                    Nakon zaprimanja Vaše prijave, potvrdu i račun za uplatu kotizacije ćemo Vam poslati na Vašu e-mail adresu.
                                 </p>
                             </div>
                         {/if}
@@ -627,7 +636,7 @@
                 Prijava uspješno poslana!
             </h3>
             <p class="text-gray-600 mb-8 text-center">
-                Hvala na Vašoj prijavi. Na navedenu e-mail adresu uskoro ćemo Vam poslati potvrdu primitka prijave i predračun za uplatu kotizacije.
+                Hvala na Vašoj prijavi. Na navedenu e-mail adresu uskoro ćemo Vam poslati potvrdu primitka prijave i račun za uplatu kotizacije.
             </p>
             <div class="mt-6 flex justify-center">
                 <button type="button" class="button primary px-8 py-2.5" on:click={closeSuccessModal}>
