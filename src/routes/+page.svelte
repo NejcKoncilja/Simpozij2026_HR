@@ -474,57 +474,136 @@
                 <div class="tab-content-wrapper" transition:fade={{ duration: 300 }}>
                     <div class="card">
                         <h2 class="card-title text-[#0F786B]">Program</h2>
-                        <div class="space-y-5 text-gray-800"> <div class="py-2 border-t border-b border-gray-200">
-                            <p class="font-semibold text-lg text-gray-700">Registracija <span class="font-normal text-base text-gray-500">(08:00 - 08:25)</span></p>
-                        </div>
+                        <div class="space-y-0 text-gray-800">
 
-                            <div class="py-2 border-b border-gray-200">
-                                <p class="font-semibold text-lg text-gray-700">Početak predavanja <span class="font-normal text-base text-gray-500">(08:25)</span></p>
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5">07:50 – 08:30</span>
+                                <p class="font-semibold text-gray-700">Registracija</p>
                             </div>
 
-                            <div class="pt-2 pb-4"> <ol class=" list-inside space-y-2 pl-5 text-base">
-                                <li>Isolator gloves - Challenges, Solutions and Innovations</li>
-                                <li>Design of Controlled Clean Rooms (CR)</li>
-                                <li>Testing of RABS gloves: Application and visual inspections in the context of the new GMP Annex 1 (CCS)</li>
-                                <li>Risk Assessment and regulatory updates in GMP in the Adriatic region</li>
-                                <li>Strategies and experiences in the Equipment Qualification</li>
-                                <li>Implementation of the VR Simulator into an existing training system in Controlled environment</li>
-                            </ol>
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5">08:30</span>
+                                <p class="font-semibold text-gray-700">Početak predavanja</p>
                             </div>
 
-                            <div class="pt-4 pb-4">
-                                <ol start="7" class="list-inside space-y-2 pl-5 text-base">
-                                    <li class="font-semibold text-left">Pauza za kavu</li> </ol>  </div>
-
-                            <div class="pt-4 pb-4"> <ol start="7" class="list-inside space-y-2 pl-5 text-base">
-                                <li>Microbiology and Mediafill Testing</li>
-                                <li>Future of QC testing using automation & robotics</li>
-                                <li>Transfer of Materials in Cleanroom Environments in correlation to Annex 1 guidelines</li>
-                                <li>Annex 1 Guidelines: The Importance of Nitrile Gloves in Aseptic Processes</li>
-                            </ol>
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Microbiological Bridges: Collaboration for Progress</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">dr. sc. Dina Jug (Novartis) · Irena Sušanj Stipić (JGL) · asist. Matic Brvar, mag. mol. funkc. biol. (IMI) · dr. Aljaž Sočan, mag. farm., spec. (KCLJ / SFD) · Željka Vrbanic (Merck)</p>
+                                </div>
                             </div>
 
-                            <div class="pt-4 pb-4">
-                                <ol start="7" class="list-inside space-y-2 pl-5 text-base">
-                                    <li class="font-semibold text-left">Ručak</li> </ol>  </div>
-
-                            <div class="pt-4 pb-2"> <h3 class="font-semibold text-lg mb-2 text-gray-800 border-b border-gray-300 pb-1">Radionice</h3>
-                                <ul class="list-disc list-inside space-y-2 pl-5 text-base mt-3">
-                                    <li>How to protect your product, patient and operations - practical case study.</li>
-                                    <li>Residue management - practical case study.</li>
-                                </ul>
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Establishment of clean rooms at the University Medical Centre Ljubljana</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Skender Zahirović, mag. farm. (bolnička ljekarna UKC Ljubljana)</p>
+                                </div>
                             </div>
 
-                            <div class="pt-4 pb-2"> <h3 class="font-semibold text-lg mb-2 text-gray-800 border-b border-gray-300 pb-1">Predavanja</h3> <ol start="11" class=" list-inside space-y-2 pl-5 text-base">
-                                <li>Principles and challenges of sterility assurance of final sterile dosage forms</li>
-                                <li>Real-Life Implementation of an Autoclave - Project Management and Workflow Impact in Pharmaceutical Preparation</li>
-                                <li>The Manufacturing Process of a CAR-T Cell Product for Therapeutic Use</li>
-                            </ol>
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Designing Multifunctional GMP Facilities for ATMP Manufacturing under Biosafety Constraints</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">izr. prof. dr. Mojca Benčina (Centar za tehnologije genske i stanične terapije, Kemijski institut)</p>
+                                </div>
                             </div>
 
-                            <div class="py-2 border-t border-b border-gray-200">
-                                <p class="font-semibold text-lg text-gray-700">Predviđeni završetak <span class="font-normal text-base text-gray-500">(17:00)</span></p>
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <p class="text-gray-600 italic">Q&A</p>
                             </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100 bg-amber-50/50 rounded-lg px-2">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <p class="font-semibold text-amber-700">☕ Pauza za kavu</p>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">The invisible foundation of aseptic processing: How GMP C and D grade areas support A/B grade environments</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Ivica Živko, mag. admin. sanit. (JGL, Steril production Technology Expert)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Recovery Time (ISO 14644-3) vs. Clean-up Time (GMP Annex 1)</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">mag. Nataša Štirn (Slovenian Cleanroom Society)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Automated chemotherapy compounding - advantages and disadvantages</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Jure Dolenc, mag. farm. (bolnička ljekarna OI)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <p class="text-gray-600 italic">Q&A</p>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Panel: Regulatory Updates in Focus: Quality Systems, Documentation Practices, and Annex 11 Legal Requirements</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Martina Bencetić Marijanović, mag. ing. bioproc., univ. mag. pharm. (HALMED)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100 bg-green-50/50 rounded-lg px-2">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <p class="font-semibold text-green-700">🍽️ Ručak</p>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-[#0F786B] uppercase tracking-wider w-24 shrink-0 pt-0.5 font-bold">Radionice</span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Best Practice applications for Material transfer</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Denis Streitt (Senior Global Technical Consultant, Ecolab Life Science)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">From expectations into practice — CCS Driven Disinfectant Format Selection</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Michel Dominguesa (Senior Global Technical Consultant, Ecolab Life Science)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100 bg-amber-50/50 rounded-lg px-2">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <p class="font-semibold text-amber-700">☕ Pauza za kavu</p>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-[#0F786B] uppercase tracking-wider w-24 shrink-0 pt-0.5 font-bold">Radionice</span>
+                                <div>
+                                    <p class="font-medium text-gray-800">How to use equipment for cleanroom cleaning</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Jürgen Lederer (PFENNIG Reinigungstechnik)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-b border-gray-100">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5"></span>
+                                <div>
+                                    <p class="font-medium text-gray-800">Potential savings through validated systems</p>
+                                    <p class="text-sm text-gray-500 mt-0.5">Thomas Kühling & Dominik Zick (PFENNIG Reinigungstechnik)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 py-3 border-t-2 border-[#0F786B]/20 mt-2">
+                                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider w-24 shrink-0 pt-0.5">17:00</span>
+                                <p class="font-semibold text-gray-700">Završetak</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
