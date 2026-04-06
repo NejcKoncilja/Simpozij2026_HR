@@ -10,7 +10,7 @@
         sfd: boolean;
     }
 
-    export let data: { jeAkcijskaCena: boolean; rednaCenaIndividualna: number; rednaCenaSkupinska: number; akcijskaIndividualna: number; akcijskaSkupinska: number };
+    export let data: { jeAkcijskaCena: boolean; rednaCenaIndividualna: number; rednaCenaSkupinska: number; akcijskaIndividualna: number; akcijskaSkupinska: number; dodatniText: string };
 
     let activeTab: 'prijava' | 'program' = 'prijava';
     let prijavaVrsta: '' | 'individualna' | 'skupinska' = '';
@@ -26,6 +26,7 @@
     const rednaCenaSkupinska = data.rednaCenaSkupinska;
     const akcijskaIndividualna = data.akcijskaIndividualna;
     const akcijskaSkupinska = data.akcijskaSkupinska;
+    const dodatniText = String(data.dodatniText ?? '').trim();
 
     function formatirajCeno(cena: number): string {
         return String(cena).replace('.', ',');
@@ -273,6 +274,9 @@
                                     {/if}
                                 </div>
                             </div>
+                            {#if jeAkcijskaCena && dodatniText}
+                                <p class="price-note">{dodatniText}</p>
+                            {/if}
                         </section>
 
                         <section class="card">
@@ -354,6 +358,9 @@
                                         <p class="price-text font-semibold">Kotizacija: {formatirajCeno(akcijskaIndividualna)} € + PDV po osobi</p>
                                     {:else}
                                         <p class="price-text">Kotizacija: {formatirajCeno(rednaCenaIndividualna)} € + PDV po osobi</p>
+                                    {/if}
+                                    {#if jeAkcijskaCena && dodatniText}
+                                        <p class="price-note">{dodatniText}</p>
                                     {/if}
                                 </div>
                             </section>
@@ -443,6 +450,9 @@
                                             <p class="price-text mt-1 font-semibold">Kotizacija: {formatirajCeno(akcijskaSkupinska)} € + PDV po osobi</p>
                                         {:else}
                                             <p class="price-text mt-1">Kotizacija: {formatirajCeno(rednaCenaSkupinska)} € + PDV po osobi</p>
+                                        {/if}
+                                        {#if jeAkcijskaCena && dodatniText}
+                                            <p class="price-note">{dodatniText}</p>
                                         {/if}
                                     </div>
                                 </div>
@@ -785,6 +795,9 @@
     }
     .price-text {
         @apply font-semibold text-[1.05rem] text-[#0F786B];
+    }
+    .price-note {
+        @apply mt-4 text-sm text-gray-500 whitespace-pre-line;
     }
     .remove-button {
         @apply ml-auto mt-2 sm:mt-0 px-3 py-1.5 border border-red-400 rounded-lg text-sm text-red-500 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 transition-colors duration-200;

@@ -8,7 +8,8 @@ const PRIVZETE_CENE = {
     rednaCenaIndividualna: 170,
     rednaCenaSkupinska: 161.5,
     akcijskaIndividualna: 150,
-    akcijskaSkupinska: 142.5
+    akcijskaSkupinska: 142.5,
+    dodatniText: ''
 };
 
 function pretvoriVCeno(vrednost, fallback) {
@@ -22,6 +23,14 @@ function pretvoriVCeno(vrednost, fallback) {
     const stevilka = Number(normalizirano);
 
     return Number.isFinite(stevilka) ? stevilka : fallback;
+}
+
+function pretvoriUTekst(vrijednost, fallback = '') {
+    if (typeof vrijednost !== 'string') {
+        return fallback;
+    }
+
+    return vrijednost.trim();
 }
 
 async function preberiCenikHR() {
@@ -53,7 +62,8 @@ async function preberiCenikHR() {
                 akcijskaSkupinska: pretvoriVCeno(
                     cenik.Skupinska_popust_HR,
                     PRIVZETE_CENE.akcijskaSkupinska
-                )
+                ),
+                dodatniText: pretvoriUTekst(cenik.Dodatni_text_HR, PRIVZETE_CENE.dodatniText)
             };
         }
     } catch (err) {
