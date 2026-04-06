@@ -136,6 +136,11 @@
         podjetje = { naziv: '', naslov: '', davcna: '' };
         formError = null;
     }
+
+    function oznakaSudionika(ime: string, idx: number): string {
+        const uredenoIme = ime.trim();
+        return uredenoIme.length > 0 ? uredenoIme : `Sudionik #${idx + 1}`;
+    }
 </script>
 
 <svelte:head>
@@ -363,7 +368,11 @@
                                     {#each udelezenci as ud, idx (idx)}
                                         <div class="participant-box">
                                             <input type="hidden" name="udelezenec{idx}_index" value={idx} />
-                                            <p class="font-semibold text-gray-700 mb-4">Sudionik #{idx + 1}</p>
+                                            {#key oznakaSudionika(ud.ime, idx)}
+                                                <p class="mb-4 font-semibold tracking-tight text-gray-700" transition:fade={{ duration: 180 }}>
+                                                    {oznakaSudionika(ud.ime, idx)}
+                                                </p>
+                                            {/key}
                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
                                                 <div>
                                                     <label for="ud{idx}_ime" class="sr-only">Ime i prezime</label>
@@ -416,7 +425,7 @@
                                                     <button
                                                             type="button"
                                                             on:click={() => odstraniUdelezenec(idx)}
-                                                            title="Ukloni sudionika #{idx + 1}"
+                                                            title={`Ukloni ${oznakaSudionika(ud.ime, idx)}`}
                                                             class="remove-button"
                                                     >
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
