@@ -142,7 +142,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap"
         rel="stylesheet"
     />
 </svelte:head>
@@ -150,11 +150,11 @@
 <div id="gmpForm" class="min-h-screen w-full bg-gray-50 border-t-4 border-[#0F786B] px-4 py-8 sm:px-6 md:px-8 lg:px-10 font-sans flex flex-col">
     <div class="flex-grow">
         <section class="max-w-6xl mx-auto mb-8 text-center">
-            <h1 class="font-serif hero-title">
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F786B] mb-2">
                 PRIJAVA ZA GMP SIMPOZIJ 2026
             </h1>
-            <p class="hero-subtitle">Workshops and practical cases</p>
-            <div class="hero-meta mt-3 space-y-1 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
+            <p class="text-xl text-gray-600 font-medium">Workshops and practical cases</p>
+            <div class="mt-3 text-lg text-gray-500 space-y-1 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
                 <span class="inline-flex items-center gap-1.5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days">
                         <path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="M8 14h.01" /><path d="M12 14h.01" /><path d="M16 14h.01" /><path d="M8 18h.01" /><path d="M12 18h.01" /><path d="M16 18h.01" />
@@ -278,7 +278,7 @@
                         </section>
 
                         <section class="card">
-                            <label for="prijavaVrsta" class="section-choice-label">
+                            <label for="prijavaVrsta" class="block text-lg font-semibold text-gray-800 mb-3">
                                 Odaberite vrstu prijave *
                             </label>
                             <select
@@ -743,52 +743,38 @@
 <style>
     :global(#gmpForm) {
         font-family: 'Manrope', sans-serif;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
     }
 
     :global(#gmpForm .font-serif) {
         font-family: 'Libre Baskerville', serif;
     }
 
-    .hero-title {
-        @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-[#0F786B] mb-3;
-    }
-    .hero-subtitle {
-        @apply text-lg md:text-2xl text-gray-600 font-medium;
-    }
-    .hero-meta {
-        @apply text-base md:text-lg text-gray-500 font-medium;
-    }
     .input {
-        @apply block w-full border border-gray-300 rounded-xl px-4 py-3 text-base font-medium text-gray-900 placeholder-gray-400 bg-white shadow-sm outline-none focus:ring-2 focus:ring-[#7AB2AC] focus:border-[#0F786B] transition duration-150 ease-in-out;
+        @apply block w-full border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 placeholder-gray-400 bg-white shadow-sm outline-none focus:ring-2 focus:ring-[#7AB2AC] focus:border-[#0F786B] transition duration-150 ease-in-out;
     }
     .checkbox {
         @apply h-5 w-5 accent-[#0F786B] border-gray-300 rounded focus:ring-2 focus:ring-offset-1 focus:ring-[#7AB2AC] cursor-pointer align-middle;
     }
     .label {
-        @apply block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2;
-    }
-    .section-choice-label {
-        @apply block text-base md:text-lg font-semibold text-gray-800 mb-3;
+        @apply block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5;
     }
     .checkbox-label {
         @apply inline-flex items-center gap-2 cursor-pointer;
     }
     .card {
-        @apply bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100;
+        @apply bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100;
     }
     .card-title {
-        @apply font-serif text-2xl md:text-3xl font-normal text-gray-800 mb-6 border-b border-gray-100 pb-3 tracking-tight;
+        @apply font-serif text-xl md:text-2xl font-semibold text-gray-800 mb-6 border-b border-gray-100 pb-3;
     }
     .participant-box {
-        @apply border border-gray-200 rounded-2xl p-5 relative bg-white shadow-sm;
+        @apply border border-gray-200 rounded-xl p-5 relative bg-white shadow-sm;
     }
     .price-section {
         @apply mt-6 pt-6 border-t border-gray-200;
     }
     .price-text {
-        @apply font-semibold text-lg md:text-xl text-[#0F786B] tracking-tight;
+        @apply font-semibold text-lg text-[#0F786B];
     }
     .remove-button {
         @apply ml-auto mt-2 sm:mt-0 px-3 py-1.5 border border-red-400 rounded-lg text-sm text-red-500 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 transition-colors duration-200;
@@ -800,7 +786,7 @@
         @apply max-w-6xl mx-auto mt-10 text-center p-5 bg-[#0F786B]/5 border border-[#0F786B]/20 rounded-xl;
     }
     .submit-button {
-        @apply px-10 py-3.5 rounded-xl shadow-lg transition-all duration-200 text-base md:text-lg font-extrabold focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+        @apply px-10 py-3.5 rounded-xl shadow-lg transition-all duration-200 text-lg font-bold uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
     }
     .submit-button.primary {
         @apply bg-[#0F786B] text-white hover:bg-[#0c5f56] hover:shadow-xl focus:ring-[#7AB2AC];
@@ -815,7 +801,7 @@
         @apply text-[#0F786B] hover:text-[#0c5f56] hover:underline transition-colors duration-200;
     }
     .tab-button {
-        @apply px-6 py-3 font-bold text-sm md:text-base uppercase tracking-widest transition-colors duration-200 ease-in-out border-b-2;
+        @apply px-6 py-3 font-semibold text-lg transition-colors duration-200 ease-in-out border-b-2;
     }
     .tab-button.active {
         @apply border-[#0F786B] text-[#0F786B];
@@ -830,7 +816,7 @@
         @apply bg-white w-full max-w-2xl mx-auto p-7 rounded-2xl shadow-xl text-left transform transition-all scale-100 opacity-100;
     }
     .modal-title {
-        @apply font-serif text-2xl md:text-3xl font-normal text-gray-800 mb-4 tracking-tight;
+        @apply text-xl font-semibold text-gray-800 mb-4;
     }
     .modal-body {
         @apply text-sm text-gray-600 leading-relaxed max-h-60 overflow-y-auto pr-2 space-y-3;
@@ -839,7 +825,7 @@
         @apply mt-8 flex gap-4 justify-end border-t border-gray-100 pt-5;
     }
     .button {
-        @apply px-5 py-2.5 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200 font-bold disabled:opacity-50 disabled:cursor-not-allowed;
+        @apply px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed;
     }
     .button.primary {
         @apply bg-[#0F786B] text-white hover:bg-[#0c5f56] focus:ring-[#7AB2AC];
