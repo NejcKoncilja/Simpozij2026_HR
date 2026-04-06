@@ -2,12 +2,67 @@ import { fail } from '@sveltejs/kit';
 import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('https://rest-grown.pockethost.io');
+const CENIK_OZNAKA_PODJETJA = '__CENIK__';
+const CENIK_EMAIL = 'cenik@gmp.test';
+const PRIVZETI_CENIK = {
+    akcijskaAktivna: new Date() < new Date('2026-04-22'),
+    individualnaRedna: '170',
+    individualnaAkcijska: '150',
+    skupinskaRedna: '161,5',
+    skupinskaAkcijska: '142,5'
+};
 
-export function load() {
-    const datumKrajAkcije = new Date('2026-04-22');
-    const danes = new Date();
-    const jeAkcijskaCena = danes < datumKrajAkcije;
-    return { jeAkcijskaCena };
+function preberiVrednostCenika(vrednost, fallback) {
+    const niz = String(vrednost ?? '').trim();
+    return niz.length > 0 ? niz : fallback;
+}
+
+async function preberiCenik() {
+    try {
+        const zapisi = await pb.collection('SLO_individualna').getFullList({
+            sort: '-created',
+            requestKey: null
+        });
+
+        const cenikZapis = zapisi.find(
+            (zapis) =>
+                String(zapis.podjetje ?? '').trim() === CENIK_OZNAKA_PODJETJA &&
+                String(zapis.elektronski_naslov ?? '').trim() === CENIK_EMAIL
+        );
+
+        if (!cenikZapis) {
+            return { ...PRIVZETI_CENIK };
+        }
+
+        return {
+            akcijskaAktivna: Boolean(cenikZapis.sfd),
+            individualnaRedna: preberiVrednostCenika(
+                cenikZapis.naslov_sedeza_podjetja,
+                PRIVZETI_CENIK.individualnaRedna
+            ),
+            individualnaAkcijska: preberiVrednostCenika(
+                cenikZapis.davcna_stevilka,
+                PRIVZETI_CENIK.individualnaAkcijska
+            ),
+            skupinskaRedna: preberiVrednostCenika(
+                cenikZapis.ime_in_priimek,
+                PRIVZETI_CENIK.skupinskaRedna
+            ),
+            skupinskaAkcijska: preberiVrednostCenika(
+                cenikZapis.telefonska_stevilka,
+                PRIVZETI_CENIK.skupinskaAkcijska
+            )
+        };
+    } catch (err) {
+        console.error('Napaka pri branju cjenika:', err);
+        return { ...PRIVZETI_CENIK };
+    }
+}
+
+export async function load() {
+    return {
+        cenik: await preberiCenik()
+    };
 }
 
 export const actions = {
@@ -128,3 +183,4 @@ export const actions = {
         }
     }
 };
+
