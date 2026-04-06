@@ -7,6 +7,8 @@ export async function load() {
     const pbCenik = new PocketBase('https://rest-grown.pockethost.io');
 
     let jeAkcijskaCena = false;
+    let rednaCenaIndividualna = 170;
+    let rednaCenaSkupinska = 161.5;
     let akcijskaIndividualna = 150;
     let akcijskaSkupinska = 142.5;
 
@@ -15,6 +17,8 @@ export async function load() {
         if (zapisi.length > 0) {
             const cenik = zapisi[0];
             jeAkcijskaCena = Boolean(cenik.Akcijska_cena_HR);
+            rednaCenaIndividualna = Number(cenik.Individualna_HR);
+            rednaCenaSkupinska = Number(cenik.Skupinska_HR);
             akcijskaIndividualna = Number(cenik.Individualna_popust_HR);
             akcijskaSkupinska = Number(cenik.Skupinska_popust_HR);
         }
@@ -24,7 +28,7 @@ export async function load() {
         jeAkcijskaCena = danes < datumKrajAkcije;
     }
 
-    return { jeAkcijskaCena, akcijskaIndividualna, akcijskaSkupinska };
+    return { jeAkcijskaCena, rednaCenaIndividualna, rednaCenaSkupinska, akcijskaIndividualna, akcijskaSkupinska };
 }
 
 export const actions = {
