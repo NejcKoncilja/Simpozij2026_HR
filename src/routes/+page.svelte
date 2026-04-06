@@ -260,6 +260,9 @@
                                     {#if jeAkcijskaCena}
                                         <p><span class="line-through text-gray-400">{formatirajCeno(rednaCenaIndividualna)} € + PDV po osobi</span></p>
                                         <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: {formatirajCeno(akcijskaIndividualna)} € + PDV po osobi</p>
+                                        {#if dodatniText}
+                                            <p class="price-note">{dodatniText}</p>
+                                        {/if}
                                     {:else}
                                         <p>{formatirajCeno(rednaCenaIndividualna)} € + PDV po osobi</p>
                                     {/if}
@@ -269,14 +272,14 @@
                                     {#if jeAkcijskaCena}
                                         <p><span class="line-through text-gray-400">{formatirajCeno(rednaCenaSkupinska)} € + PDV po osobi</span></p>
                                         <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: {formatirajCeno(akcijskaSkupinska)} € + PDV po osobi</p>
+                                        {#if dodatniText}
+                                            <p class="price-note">{dodatniText}</p>
+                                        {/if}
                                     {:else}
                                         <p>{formatirajCeno(rednaCenaSkupinska)} € + PDV po osobi</p>
                                     {/if}
                                 </div>
                             </div>
-                            {#if jeAkcijskaCena && dodatniText}
-                                <p class="price-note">{dodatniText}</p>
-                            {/if}
                         </section>
 
                         <section class="card">
