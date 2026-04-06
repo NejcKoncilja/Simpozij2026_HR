@@ -138,6 +138,15 @@
     }
 </script>
 
+<svelte:head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap"
+        rel="stylesheet"
+    />
+</svelte:head>
+
 <div id="gmpForm" class="min-h-screen w-full bg-gray-50 border-t-4 border-[#0F786B] px-4 py-8 sm:px-6 md:px-8 lg:px-10 font-sans flex flex-col">
     <div class="flex-grow">
         <section class="max-w-6xl mx-auto mb-8 text-center">
@@ -732,6 +741,14 @@
 {/if}
 
 <style>
+    :global(#gmpForm) {
+        font-family: 'Manrope', sans-serif;
+    }
+
+    :global(#gmpForm .font-serif) {
+        font-family: 'Libre Baskerville', serif;
+    }
+
     .input {
         @apply block w-full border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 placeholder-gray-400 bg-white shadow-sm outline-none focus:ring-2 focus:ring-[#7AB2AC] focus:border-[#0F786B] transition duration-150 ease-in-out;
     }
