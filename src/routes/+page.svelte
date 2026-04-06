@@ -10,15 +10,7 @@
         sfd: boolean;
     }
 
-    interface CenikData {
-        akcijskaAktivna: boolean;
-        individualnaRedna: string;
-        individualnaAkcijska: string;
-        skupinskaRedna: string;
-        skupinskaAkcijska: string;
-    }
-
-    export let data: { cenik: CenikData };
+    export let data: { jeAkcijskaCena: boolean; akcijskaIndividualna: number; akcijskaSkupinska: number };
 
     let activeTab: 'prijava' | 'program' = 'prijava';
     let prijavaVrsta: '' | 'individualna' | 'skupinska' = '';
@@ -29,25 +21,12 @@
         davcna: ''
     };
 
-    const cenik = data.cenik;
-    const jeAkcijskaCena = cenik.akcijskaAktivna;
+    const jeAkcijskaCena = data.jeAkcijskaCena;
+    const akcijskaIndividualna = data.akcijskaIndividualna;
+    const akcijskaSkupinska = data.akcijskaSkupinska;
 
-    function formatirajCijenu(vrednost: string): string {
-        const obrezana = String(vrednost ?? '').trim();
-
-        if (!obrezana) {
-            return '';
-        }
-
-        if (obrezana.includes('€')) {
-            return obrezana;
-        }
-
-        return `${obrezana} € + PDV po osobi`;
-    }
-
-    function formatirajKotizaciju(vrednost: string): string {
-        return `Kotizacija: ${formatirajCijenu(vrednost)}`;
+    function formatirajCeno(cena: number): string {
+        return String(cena).replace('.', ',');
     }
 
     function ustvariUdelezenec(): Udelezenec {
@@ -269,8 +248,8 @@
                                 <div>
                                     <p class="font-semibold uppercase text-xs tracking-wider text-gray-500 mb-1">Individualna prijava</p>
                                     {#if jeAkcijskaCena}
-                                        <p><span class="line-through text-gray-400">{formatirajCijenu(cenik.individualnaRedna)}</span></p>
-                                        <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: {formatirajCijenu(cenik.individualnaAkcijska)}</p>
+                                        <p><span class="line-through text-gray-400">170 € + PDV po osobi</span></p>
+                                        <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: {formatirajCeno(akcijskaIndividualna)} € + PDV po osobi</p>
                                     {:else}
                                         <p>{formatirajCijenu(cenik.individualnaRedna)}</p>
                                     {/if}
@@ -278,8 +257,8 @@
                                 <div>
                                     <p class="font-semibold uppercase text-xs tracking-wider text-gray-500 mb-1">Grupna prijava</p>
                                     {#if jeAkcijskaCena}
-                                        <p><span class="line-through text-gray-400">{formatirajCijenu(cenik.skupinskaRedna)}</span></p>
-                                        <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: {formatirajCijenu(cenik.skupinskaAkcijska)}</p>
+                                        <p><span class="line-through text-gray-400">161,5 € + PDV po osobi</span></p>
+                                        <p class="font-semibold text-[#0F786B]">Akcijska cijena za rane prijave: {formatirajCeno(akcijskaSkupinska)} € + PDV po osobi</p>
                                     {:else}
                                         <p>{formatirajCijenu(cenik.skupinskaRedna)}</p>
                                     {/if}
@@ -362,8 +341,8 @@
                                 {/each}
                                 <div class="price-section">
                                     {#if jeAkcijskaCena}
-                                        <p class="price-text"><span class="line-through text-gray-500">{formatirajKotizaciju(cenik.individualnaRedna)}</span></p>
-                                        <p class="price-text font-semibold">{formatirajKotizaciju(cenik.individualnaAkcijska)}</p>
+                                        <p class="price-text"><span class="line-through text-gray-500">Kotizacija: 170 € + PDV po osobi</span></p>
+                                        <p class="price-text font-semibold">Kotizacija: {formatirajCeno(akcijskaIndividualna)} € + PDV po osobi</p>
                                     {:else}
                                         <p class="price-text">{formatirajKotizaciju(cenik.individualnaRedna)}</p>
                                     {/if}
@@ -451,8 +430,8 @@
                                     </button>
                                     <div class="text-right">
                                         {#if jeAkcijskaCena}
-                                            <p class="price-text mt-1"><span class="line-through text-gray-500">{formatirajKotizaciju(cenik.skupinskaRedna)}</span></p>
-                                            <p class="price-text mt-1 font-semibold">{formatirajKotizaciju(cenik.skupinskaAkcijska)}</p>
+                                            <p class="price-text mt-1"><span class="line-through text-gray-500">Kotizacija: 161,5 € + PDV po osobi</span></p>
+                                            <p class="price-text mt-1 font-semibold">Kotizacija: {formatirajCeno(akcijskaSkupinska)} € + PDV po osobi</p>
                                         {:else}
                                             <p class="price-text mt-1">{formatirajKotizaciju(cenik.skupinskaRedna)}</p>
                                         {/if}
