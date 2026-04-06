@@ -8,7 +8,6 @@
         email: string;
         telefon: string;
         sfd: boolean;
-        oznaka: string;
     }
 
     export let data: { jeAkcijskaCena: boolean; rednaCenaIndividualna: number; rednaCenaSkupinska: number; akcijskaIndividualna: number; akcijskaSkupinska: number };
@@ -33,7 +32,7 @@
     }
 
     function ustvariUdelezenec(): Udelezenec {
-        return { ime: '', email: '', telefon: '', sfd: false, oznaka: '' };
+        return { ime: '', email: '', telefon: '', sfd: false };
     }
 
     let udelezenci: Udelezenec[] = [];
@@ -138,40 +137,6 @@
         formError = null;
     }
 
-    function potvrdiOznakuSudionika(index: number): void {
-        const sudionik = udelezenci[index];
-
-        if (!sudionik) {
-            return;
-        }
-
-        const novaOznaka = sudionik.ime.trim();
-
-        if (sudionik.oznaka === novaOznaka) {
-            return;
-        }
-
-        udelezenci = udelezenci.map((ud, idx) =>
-            idx === index
-                ? {
-                      ...ud,
-                      oznaka: novaOznaka
-                  }
-                : ud
-        );
-    }
-
-    function oznakaSudionika(ud: Udelezenec, idx: number): string {
-        const prikazanaOznaka = ud.oznaka.trim();
-        return prikazanaOznaka.length > 0 ? prikazanaOznaka : `Sudionik #${idx + 1}`;
-    }
-
-    function naslovIndividualnePrijave(): string {
-        const prikazanaOznaka = udelezenci[0]?.oznaka?.trim() ?? '';
-        return prikazanaOznaka.length > 0
-            ? `Podaci sudionika - ${prikazanaOznaka}`
-            : 'Podaci sudionika';
-    }
 </script>
 
 <svelte:head>
@@ -328,9 +293,7 @@
 
                         {#if prijavaVrsta === 'individualna'}
                             <section class="card" transition:fade>
-                                <h2 class="card-title truncate text-[#0F786B]">
-                                    {naslovIndividualnePrijave()}
-                                </h2>
+                                <h2 class="card-title text-[#0F786B]">Podaci sudionika</h2>
                                 {#each udelezenci as ud, idx (idx)}
                                     <div class="space-y-4 mb-6">
                                         <input type="hidden" name="udelezenec{idx}_index" value={idx} />
@@ -344,7 +307,6 @@
                                                         placeholder="Npr. Ivan Horvat"
                                                         required
                                                         bind:value={ud.ime}
-                                                        on:blur={() => potvrdiOznakuSudionika(idx)}
                                                 />
                                             </div>
                                             <div>
@@ -402,9 +364,7 @@
                                     {#each udelezenci as ud, idx (idx)}
                                         <div class="participant-box">
                                             <input type="hidden" name="udelezenec{idx}_index" value={idx} />
-                                            <p class="mb-4 truncate font-semibold tracking-tight text-gray-700">
-                                                {oznakaSudionika(ud, idx)}
-                                            </p>
+                                            <p class="mb-4 font-semibold tracking-tight text-gray-700">Sudionik #{idx + 1}</p>
                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
                                                 <div>
                                                     <label for="ud{idx}_ime" class="sr-only">Ime i prezime</label>
@@ -415,7 +375,6 @@
                                                             placeholder="Ime i prezime *"
                                                             required
                                                             bind:value={ud.ime}
-                                                            on:blur={() => potvrdiOznakuSudionika(idx)}
                                                     />
                                                 </div>
                                                 <div>
@@ -458,7 +417,7 @@
                                                     <button
                                                             type="button"
                                                             on:click={() => odstraniUdelezenec(idx)}
-                                                            title={`Ukloni ${oznakaSudionika(ud, idx)}`}
+                                                            title={`Ukloni sudionika #${idx + 1}`}
                                                             class="remove-button"
                                                     >
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
