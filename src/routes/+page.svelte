@@ -765,7 +765,7 @@
         @apply h-5 w-5 accent-[#0F786B] border-gray-300 rounded focus:ring-2 focus:ring-offset-1 focus:ring-[#7AB2AC] cursor-pointer align-middle;
     }
     .label {
-        @apply block text-[11px] font-bold text-gray-500 uppercase tracking-[0.14em] mb-2;
+        @apply block text-sm font-semibold text-gray-600 mb-2;
     }
     .checkbox-label {
         @apply inline-flex items-center gap-2 cursor-pointer;
