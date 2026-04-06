@@ -328,11 +328,9 @@
 
                         {#if prijavaVrsta === 'individualna'}
                             <section class="card" transition:fade>
-                                {#key naslovIndividualnePrijave()}
-                                    <h2 class="card-title text-[#0F786B]" transition:fade={{ duration: 180 }}>
-                                        {naslovIndividualnePrijave()}
-                                    </h2>
-                                {/key}
+                                <h2 class="card-title truncate text-[#0F786B]">
+                                    {naslovIndividualnePrijave()}
+                                </h2>
                                 {#each udelezenci as ud, idx (idx)}
                                     <div class="space-y-4 mb-6">
                                         <input type="hidden" name="udelezenec{idx}_index" value={idx} />
@@ -404,11 +402,9 @@
                                     {#each udelezenci as ud, idx (idx)}
                                         <div class="participant-box">
                                             <input type="hidden" name="udelezenec{idx}_index" value={idx} />
-                                            {#key oznakaSudionika(ud, idx)}
-                                                <p class="mb-4 font-semibold tracking-tight text-gray-700" transition:fade={{ duration: 180 }}>
-                                                    {oznakaSudionika(ud, idx)}
-                                                </p>
-                                            {/key}
+                                            <p class="mb-4 truncate font-semibold tracking-tight text-gray-700">
+                                                {oznakaSudionika(ud, idx)}
+                                            </p>
                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
                                                 <div>
                                                     <label for="ud{idx}_ime" class="sr-only">Ime i prezime</label>
