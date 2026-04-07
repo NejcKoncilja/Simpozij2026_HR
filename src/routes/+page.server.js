@@ -129,7 +129,7 @@ export const actions = {
                     Elektronski_naslov: email,
                     Telefonska_stevilka: telefon,
                     SFD: sfd,
-                    Kotizacija: izracunajKotizacijo(cjenik, 'individualna')
+                    Kotizacija: izracunajKotizaciju(cjenik, 'individualna')
                 });
                 console.log('Spremljena individualna prijava:', record);
             } catch (err) {
@@ -193,7 +193,7 @@ export const actions = {
                         Elektronski_naslov: ud.email,
                         Telefonska_stevilka: ud.telefon,
                         SFD: ud.sfd,
-                        Kotizacija: izracunajKotizacijo(cjenik, 'skupinska')
+                        Kotizacija: izracunajKotizaciju(cjenik, 'skupinska')
                     });
                     console.log('Spremljena grupna prijava:', zapis);
                 }
